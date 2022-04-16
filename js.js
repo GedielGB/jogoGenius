@@ -45,7 +45,7 @@ let checkOrder = () => {
         }
     }
     if(clickedOrder.length == order.length) {
-        alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível!`);
+        alert(`\nPARABÉNS!! Você está indo muito bem!! Clique para ir ao próximo nível!`);
         nextLevel();
     }
 }
@@ -84,18 +84,24 @@ let nextLevel = () => {
 
 //funcao para game over
 let gameOver = () => {
-    alert(`Pontuação: ${score}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`);
+    score = (score - 1) * 10;
+    alert(`Pontuação: ${score}!\nGAME OVER!\n`);
     soundErrorPlay();
     order = [];
     clickedOrder = [];
-    
-
+    var proceed = confirm("Are you sure you want to proceed?");
+if (proceed) {
     playGame();
+} else {
+  window.close();
+}
+
+    
 }
 
 //funcao de inicio do jogo
 let playGame = () => {
-    alert('Bem vindo ao Gênesis! Iniciando novo jogo!');
+    alert('Olá! Bem Vindo ao Jogo Genius! Clique para jogar e boa sorte!!');
     score = 0;
 
     nextLevel();
